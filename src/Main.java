@@ -3,8 +3,8 @@ public class Main {
         Fila f = new Fila(5);
 
         f.insere('A');
-        f.insere('B');
-        f.insere('C');
+        //f.insere('B');
+        //f.insere('C');
 
         f.imprime(); // Deve imprimir A B C
 

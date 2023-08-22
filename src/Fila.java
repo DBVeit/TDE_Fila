@@ -17,7 +17,7 @@ public class Fila {
             System.out.println("Fila vazia - PODE INSERIR!");
             return true;
         }else {
-            System.out.println("Fila não vazia");
+            //System.out.println("Fila não vazia");
             return false;
         }
     }
@@ -30,7 +30,7 @@ public class Fila {
             System.out.println("Fila cheia - PRECISA REMOVER!");
             return true;
         }else {
-            System.out.println("Fila não cheia");
+            //System.out.println("Fila não cheia");
             return false;
         }
     }
@@ -56,6 +56,7 @@ public class Fila {
             }else {
                 primeiro++;
             }
+            System.out.println("Removendo elemento: " + elementoRemovido);
             return elementoRemovido;
         }else {
             System.out.println("Fila vazia - NÃO HÁ O QUE REMOVER!");
@@ -67,10 +68,10 @@ public class Fila {
         if (!vazia()){
             int i = primeiro;
             while (i != ultimo){
-                System.out.println(dados[i] + " ");
+                System.out.println("Dados fila: " + dados[i] + " ");
                 i++;
             }
-            System.out.println(dados[i]);
+            System.out.println("Dados fila: " + dados[i]);
         }else {
             System.out.println("Fila vazia - NÃO HÁ O QUE IMPRIMIR!");
         }
