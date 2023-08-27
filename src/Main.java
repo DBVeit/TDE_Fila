@@ -1,15 +1,24 @@
 public class Main {
     public static void main(String[] args) {
-        Fila f = new Fila(5);
+        Fila fA = new Fila(4);
+        fA.insere(12);
+        fA.insere(35);
+        fA.insere(52);
+        fA.insere(64);
 
-        f.insere('A');
-        //f.insere('B');
-        //f.insere('C');
+        Fila fB = new Fila(5);
+        fB.insere(5);
+        fB.insere(15);
+        fB.insere(23);
+        fB.insere(55);
+        fB.insere(75);
 
-        f.imprime(); // Deve imprimir A B C
+        //fA.imprime();//Imprimir fila A
+        //fB.imprime();//Imprimir fila B
 
-        f.remove();
+        Fila filaF = Merge.mergeFilas(fA,fB);//Executa o Merge entre filas fA e fB
 
-        f.imprime(); // Deve imprimir B C
+        filaF.imprime(); //Deve imprimir as filas fA e fB de forma ordenada
+
     }
 }

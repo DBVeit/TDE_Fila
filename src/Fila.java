@@ -1,41 +1,36 @@
 public class Fila {
 
-    private static int primeiro; //indice do primeiro elemento
-    private static int ultimo; //indice do ultimo elemento
-    private static int[] dados; //armazenamento de dados
+    public int primeiro; //indice do primeiro elemento
+    public int ultimo; //indice do ultimo elemento
+    public int[] dados; //armazenamento de dados
     //private static int tamanho; //tamanho inicial da fila
 
-    public Fila (int capacidade){
+    public Fila (int tamanho){
         this.primeiro = -1; //indice do primeiro elemento (startado em - 1)
         this.ultimo = -1; //indice do ultimo elemento (startado em - 1)
-        this.dados = new int[capacidade]; // array dados[] para armazenar os elementos
-        //this.tamanho = dados.length;
+        this.dados = new int[tamanho]; // array dados[] para armazenar os elementos //o tamanho é usado como parametro para determinar a capacidade de armazenamento da fila (qtd de inteiros)
     }
 
-    public static boolean vazia(){
-        if (primeiro == -1 && ultimo == -1){
-            System.out.println("Fila vazia - PODE INSERIR!");
-            return true;
-        }else {
-            //System.out.println("Fila não vazia");
-            return false;
-        }
-    }
-
-    public static boolean cheia(){
-        int tamanho = dados.length;
-        int n = tamanho-1;
+    public boolean cheia(){
+        int n = (dados.length) - 1;
         if (primeiro == 0 && ultimo == n || primeiro <= n && primeiro > ultimo){
-        /*if (primeiro == (ultimo + 1) % dados.length){*/
             System.out.println("Fila cheia - PRECISA REMOVER!");
             return true;
         }else {
-            //System.out.println("Fila não cheia");
             return false;
         }
     }
 
-    public static void insere(char E){
+    public boolean vazia(){
+        if (primeiro == -1 && ultimo == -1){
+            //System.out.println("Fila vazia - PODE INSERIR!");
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    public void insere(int E){
         if (!cheia()){
             if (vazia()){
                 primeiro = 0;
@@ -56,7 +51,7 @@ public class Fila {
             }else {
                 primeiro++;
             }
-            System.out.println("Removendo elemento: " + elementoRemovido);
+            //System.out.println("Removendo elemento: " + elementoRemovido);
             return elementoRemovido;
         }else {
             System.out.println("Fila vazia - NÃO HÁ O QUE REMOVER!");
@@ -64,7 +59,7 @@ public class Fila {
         }
     }
 
-    public static void imprime(){
+    public void imprime(){
         if (!vazia()){
             int i = primeiro;
             while (i != ultimo){
@@ -75,7 +70,15 @@ public class Fila {
         }else {
             System.out.println("Fila vazia - NÃO HÁ O QUE IMPRIMIR!");
         }
+    }
 
+    public int primeiro(){
+        if(!vazia()){
+            return dados[primeiro];
+        }else {
+            System.out.println("Fila vazia - NÃO HÁ PRIMEIRO ELEMENTO!");
+            return -1;
+        }
     }
 
 }
